@@ -1,0 +1,115 @@
+.text{
+	margin-top: 15vw;
+	font-size: 4rem;
+	margin-left: 30vw;
+}
+
+.text2{
+	margin-top: 20vw;
+	font-size: 4rem;
+	margin-left: 35vw;
+}
+
+.contactInfo{
+	font-size: 3rem;
+}
+
+.subText{
+	font-size: 1.4rem;
+}
+
+.subsubText{
+	padding-top: 10px;
+	font-size: 1.1rem;
+	color: 	#383838;
+}
+
+.movableImg2{
+	margin-left: -60px;
+}
+
+@media (max-width: 850px){
+	.movableImg1{
+		margin-left: -30px;
+	}
+	.text{
+		font-size: 3rem;
+	}
+	.text2{
+		font-size: 3rem;
+		margin-left: 30vw;
+	}
+	.contactInfo{
+		font-size: 2rem;
+	}
+}
+
+@media (max-width: 600px){
+	.movableImg1
+	{
+		margin-left: -60px;
+	}
+	.movableImg2{
+		margin-left: -100px;
+	}
+}
+
+@media (max-width: 550px){
+	.text{
+		font-size: 2.5rem;
+	}
+	.text2{
+		font-size: 2.5rem;
+	}
+	.contactInfo{
+		font-size: 1.6rem;
+	}
+}
+
+@media (max-width: 450px)
+{
+	.movableImg1
+	{
+		margin-left: -140px;
+		margin-top: -25px;
+	}
+	.movableImg2{
+		margin-left: -140px;
+		margin-top: 25px;	
+	}
+	.text{
+		font-size: 2rem;
+	}
+	.text2{
+		font-size: 2rem;
+	}
+	.subText{
+		font-size: 1rem;	
+	}
+	.subsubText{
+		font-size: 0.8rem;
+	}
+}
+
+@media (max-width: 380px){
+	.text2{
+		font-size: 1.7rem;
+	}
+	.contactInfo{
+		font-size: 1.4rem;
+	}
+}
+
+@media (max-width: 320px){
+	.text{
+		margin-left: 25vw;
+	}
+	.text2{
+		margin-left: 25vw;
+	}
+}
+
+.refdiv{
+	background: white;
+	height: 150px;
+}

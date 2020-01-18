@@ -1,0 +1,118 @@
+nav{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100px;
+	padding: 10px 100px;
+	box-sizing: border-box;
+	transition: 0.3s; 
+	z-index: 1;
+}
+
+nav.black{
+	background: rgba(0,0,0,0.8);
+	height: 100px;
+	padding: 10px 100px; 
+}
+
+nav .logo{
+	padding: 22px 20px;
+	height: 80px;
+	float: left;
+	font-size: 24px;
+	transition: .3s;
+}
+
+nav.black .logo{
+	color: #fff;
+}
+
+nav ul{
+	list-style: none;
+	float: right;
+	margin: 0;
+	padding: 0;
+	display: flex;
+}
+
+nav ul li {
+	list-style: none;
+}
+
+nav ul li span{
+	line-height: 80px;
+	color: #151515;
+	padding: 12px 30px;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: .3s;
+}
+
+nav.black ul li span{
+	color: #fff;
+}
+
+nav ul li span:focus {
+	outline: none;
+}
+
+nav ul li span.active{
+	background: #E2472F;
+	color: #fff;
+	border-radius: 6px;
+}
+
+.book{
+	position: fixed;
+	bottom: 60px;
+	right: 6px;
+	height: 44px;
+	padding: 12px 20px;
+	text-transform: uppercase;
+	background: #E2472F;
+	color: #fff;
+	border-radius: 25px;
+	z-index: 1;
+	opacity: 0.9;
+	display: none;
+}
+
+.bottomNavBar{
+	display: none;
+}
+
+@media (max-width: 991px){
+	.black
+	{
+		padding: 0 20px !important;
+		height: 75px !important;
+	}
+	nav
+	{	
+		display: flex;
+		justify-content: space-around;
+		padding: 0 20px;
+	}
+	.navigation
+	{
+		display: none;
+	}
+	.book{
+		display: block;
+	}
+	.bottomNavBar{
+		color: white;
+		background: rgba(0,0,0,0.8);
+		font-size: 35px;
+		display: flex;
+		justify-content: space-around;
+		position: fixed;
+		width: 100%;
+		bottom: 0;
+		z-index: 1;
+	}
+	.home, .about, .contact{
+		padding: 10px;
+	}
+}
