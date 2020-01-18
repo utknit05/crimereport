@@ -19,9 +19,16 @@ const mapDispatchToProps = dispatch => {
 
 class Police extends React.Component{
 
+    constructor() {
+        super();
+        this.state = {
+            data: {},
+        }
+    }
+
     componentDidMount(){
         dbRef.on('value', (snapshot) => {
-            console.log(snapshot.val());
+            this.setState({ data: snapshot.val() });
         })
     }
 
@@ -34,9 +41,9 @@ class Police extends React.Component{
 	}
 
     render(){
+        console.log(this.state.data);
         return <div>
             <div onClick={this.logout} className='pointer'>Log Out</div>
-            Logged In
         </div>
     }
 }

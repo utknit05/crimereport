@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import blue_polygon from './Icons/green-polygon.svg';
-import red_polygon from './Icons/red-polygon.svg';
-import Parallax from 'parallax-js';
 import './LandingPage.css';
-import Wave from './Wave/wave';
 import NavBar from './navbar/navbar';
+import security from './Icons/security.png';
+import home from './Icons/home.jpg';
+import polygon from './Icons/polygon.png';
+import vision from './Icons/vision.png';
+import cctv from './Icons/cctv.jpg';
 
 class LandingPage extends Component {
   constructor(props){
@@ -14,74 +15,43 @@ class LandingPage extends Component {
     this.contactRef = React.createRef();
   }
 
-  componentDidMount(){
-  	var scene1 = document.getElementById('scene1');
-  	var parallaxInstance1 = new Parallax(scene1);
-  	parallaxInstance1.invert(true, true);
-
-    var scene2 = document.getElementById('scene2');
-    var parallaxInstance2 = new Parallax(scene2);
-    parallaxInstance2.invert(false, false);
-  }
-
   render() {
     return (
-    	<div ref={this.homeRef}>
-        <NavBar homeRef={this.homeRef} aboutRef={this.aboutRef} contactRef={this.contactRef}/>
-        <Wave/>
-        <div className='refdiv' ref={this.aboutRef}/>
-        <div id='about'>
-          <div id="scene1">
-            <div data-depth="0.2"><img className='movableImg1' src={blue_polygon} alt=' '/></div>
-            <em data-depth="0.6" className='text'>
-              DESI THULLA
-              <div className='subText'>Because Your Security Matters</div>
-              <div className='subsubText'>
-                We aims to provide instant police report  
-                <br/>
-                in case of any emergency or crime
-                <br/>
-                by just clicking the image of crime
-                <br/>
-                scene and reporting it through our app.
-              </div>
-              <br/>
-              Our Vision
-              <div className='subsubText'>
-                
-                <br/> 
-                
-                <br/>
-                
-              </div>
-            </em>
+    <div ref={this.homeRef}>
+      <NavBar homeRef={this.homeRef} aboutRef={this.aboutRef} contactRef={this.contactRef}/>
+      <img src={home} alt='#' className='home'/>
+      <div ref={this.aboutRef} className='text' style={{height: 400, display: 'flex'}}>
+        <img src={polygon} alt='#' height={250} width={250} />
+        <div className='pa4'>
+          <h1>CRIME REPORT</h1>
+          <h4>Because your security matters.</h4>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        </div>
+        <img src={security} alt='#' height={350} width='auto' className='security' />
+      </div>
+      <img src={polygon} alt='#' height={350} width='auto' className='polygon' />
+      <div ref={this.contactRef} className='text'>
+        <div style={{display: 'flex'}}>
+          <img src={vision} alt='#' height={350} width='auto'/>
+          <div className='vision'>
+            <h1>OUR VISION</h1>
+            <h4>Because your security matters.</h4>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
           </div>
         </div>
-        <div className='refdiv' ref={this.contactRef}/>
-        <div id='contact'>
-          <div id="scene2">
-            <div data-depth="0.2"><img className='movableImg2' src={red_polygon} alt=' '/></div>
-            <em data-depth="0.6" className='text2'>
-              Contact Info
-              <br/>
-              ___________
-              <div>
-                <br/>
-                Vibhor
-                <br/>
-                Shudhanshu
-                <br/>
-                Devanshu
-                <br/>
-                Manvendra
-                <br/>
-                Gaurav
-              </div>
-            </em>
+        <div style={{display: 'flex'}}>
+          <div className='feature'>
+            <h1>FEATURES</h1>
+            <h4>Kuch bhi daalo</h4>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
           </div>
+          <img src={polygon} alt='#' height={200} width='auto' />
+          <img src={polygon} alt='#' height={400} width='auto' />
         </div>
-        <div className='refdiv'/>
-		</div>
+      </div>
+      <img src={cctv} alt='#' className='cctv'/>
+      <div className='footer'/>
+    </div>
     );
   }
 }
