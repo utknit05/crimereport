@@ -9,14 +9,14 @@ export const CHANGE_ROUTE = 'CHANGE_ROUTE';
 export const CHANGE_AUTH_STATE = 'CHANGE_AUTH_STATE';
 
 const config = {
-    apiKey: "AIzaSyCrBWUfe6cbR9ccr1ZA3HXeD9zcEMA4Ev4",
-    authDomain: "thulla-5b5f2.firebaseapp.com",
-    databaseURL: "https://thulla-5b5f2.firebaseio.com",
-    projectId: "thulla-5b5f2",
-    storageBucket: "thulla-5b5f2.appspot.com",
-    messagingSenderId: "500975499435",
-    appId: "1:500975499435:web:9818d4417a198194689fee"
-  };
+  apiKey: "AIzaSyBmyEy8LKxIrKFSZ9NLmYab25Otk9CnjI4",
+  authDomain: "newapp-2b8ac.firebaseapp.com",
+  databaseURL: "https://newapp-2b8ac.firebaseio.com",
+  projectId: "newapp-2b8ac",
+  storageBucket: "newapp-2b8ac.appspot.com",
+  messagingSenderId: "1084743610678",
+  appId: "1:1084743610678:web:6eb1ef1d47be33d45a0397"
+};
 
 firebase.initializeApp(config);
 export var auth = firebase.auth();

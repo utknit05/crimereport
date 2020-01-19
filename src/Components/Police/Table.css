@@ -1,0 +1,40 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    overflow-y: scroll;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+tbody {
+    height: 100px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.footer {
+	background-color: rgb(71, 70, 70);
+	height: 50px;
+}
+
+.tablewrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 30px;
+}
+
+.viewButton {
+    background-color: #0dbaa3;
+    color: white;
+    border-radius: 1em;
+}

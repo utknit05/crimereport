@@ -2,8 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { database, auth } from '../constants/constants';
 import { changeAuthState } from '../actions/actions';
+import Table from './Table';
+import './Table.css';
+import NavBar from '../LandingPage/navbar/navbar';
 
-const dbRef = database.ref('Reports');
+const dbRef = database.ref('Report');
 
 const mapStateToProps = state => {
 	return {
@@ -44,6 +47,8 @@ class Police extends React.Component{
         console.log(this.state.data);
         return <div>
             <div onClick={this.logout} className='pointer'>Log Out</div>
+            <Table data={this.state.data}/>
+            <div className='footer'/>
         </div>
     }
 }
