@@ -4,7 +4,6 @@ import { database, auth } from '../constants/constants';
 import { changeAuthState } from '../actions/actions';
 import Table from './Table';
 import './Table.css';
-import NavBar from '../LandingPage/navbar/navbar';
 
 const dbRef = database.ref('Report');
 
@@ -45,8 +44,15 @@ class Police extends React.Component{
 
     render(){
         console.log(this.state.data);
-        return <div>
-            <div onClick={this.logout} className='pointer'>Log Out</div>
+        return <div style={{height: '100%'}}>
+            <div className='headerPoliceLogin shadow-3'>
+                <h4>SURVEILLANCE PORTAL</h4>
+                <div style={{display: 'flex'}}>
+                    <div className='pa3'>CHORBAZAR POLICE STATION</div>
+                    <span className='f2'> | </span>
+                    <div onClick={this.logout} className='pointer pa3'>Log Out</div>
+                </div>
+            </div>
             <Table data={this.state.data}/>
             <div className='footer'/>
         </div>

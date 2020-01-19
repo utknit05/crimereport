@@ -23,7 +23,10 @@ tbody {
 
 .footer {
 	background-color: rgb(71, 70, 70);
-	height: 50px;
+    height: 50px;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
 }
 
 .tablewrapper {
@@ -37,4 +40,13 @@ tbody {
     background-color: #0dbaa3;
     color: white;
     border-radius: 1em;
+    border: 0px;
+}
+
+.headerPoliceLogin {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(32, 32, 32, 0.85);
+    color: white;
+    padding: 20px;
 }

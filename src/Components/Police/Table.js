@@ -18,7 +18,9 @@ const Table = ({ data }) => {
                         <tr key={id}>
                             <td>{index + 1}</td>
                             <td>
-                                <button className='viewButton'>VIEW</button>
+                                <span className='viewButton pointer'>
+                                    <span style={{padding: '7px'}}>VIEW</span>
+                                </span>
                             </td>
                         </tr>)
                 }
