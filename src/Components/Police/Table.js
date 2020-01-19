@@ -1,17 +1,18 @@
 import React from 'react';
 import './Table.css';
+const low = <span style={{padding: '3px', backgroundColor: 'blue', color: 'white', borderRadius: '0.6em'}}>Low</span>;
+const medium = <span style={{padding: '3px', backgroundColor: 'yellow', color: 'white', borderRadius: '0.6em'}}>Medium</span>;
+const high = <span style={{padding: '3px', backgroundColor: 'red', color: 'white', borderRadius: '0.6em'}}>High</span>;
 
 class Table extends React.Component {
     state = {
         showPopup: false,
-        popupId: {},
+        popupData: {},
     }
 
     Popup = () => {
-        const { popupId: {id, index} } = this.state;
-        const { data } = this.props;
-        const reportDetails = data[id] || {};
-        const { markasan, name, crimelatlng, code, imageurl } = reportDetails || {};
+        const { popupData } = this.state;
+        const { markasan, name, crimelatlng, code, imageurl = [], index, severity } = popupData || {};
         const { latitude, longitude } = crimelatlng || {};
         return (
           <div id="myModal" className="modal">
@@ -33,12 +34,24 @@ class Table extends React.Component {
                 </div>
                 <div className='detailComponent'>
                   <div className='popupHeading'>LOCATION:</div>
-                  <div>{`${latitude}, ${longitude}`}</div>
+                  <div>{latitude && longitude && `${latitude}, ${longitude}`}</div>
+                </div>
+                <div className='detailComponent'>
+                  <div className='popupHeading'>SEVERITY:</div>
+                  <div>
+                    {
+                      severity === 3
+                      ? high
+                      : severity === 2
+                        ? medium
+                        : low
+                    }
+                  </div>
                 </div>
               </div>
               <div className='popupImageSection'>
                 {
-                    imageurl.map(url => <img src={url} alt='#' height={200} width={200} className='popupImageTag'/>)
+                  imageurl.map(url => <img src={url} alt='#' height={200} width={200} className='popupImageTag'/>)
                 }
               </div>
             </div>
@@ -46,17 +59,23 @@ class Table extends React.Component {
         )
     }
 
-    mountPopup = id => {
-        this.setState({ showPopup: true, popupId: id });
+    mountPopup = obj => {
+        this.setState({ showPopup: true, popupData: obj });
     }
 
     unmountPopup = () => {
-        this.setState({ showPopup: false, popupId: undefined })
+        this.setState({ showPopup: false, popupData: undefined })
+    }
+
+    compareFunc = (a,b) => {
+      return b.severity - a.severity;
     }
 
     render() {
         const { data } = this.props;
         const policeIds = Object.keys(data);
+        let sortedData = policeIds.map(id => data[id]);
+        sortedData.sort(this.compareFunc);
         const { showPopup } = this.state;
         return (
           <div className='tablewrapper'>
@@ -70,17 +89,27 @@ class Table extends React.Component {
                     <tr>
                         <th>REPORT ID</th>
                         <th>REPORT</th>
+                        <th>SEVERITY</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
-                        policeIds.map((id, index) =>
-                            <tr key={id}>
+                        sortedData.map((obj, index) =>
+                            <tr key={index}>
                                 <td>{index + 1}</td>
                                 <td>
                                     <span className='viewButton pointer'>
-                                        <span onClick={() => this.mountPopup({id, index})} style={{padding: '7px'}}>VIEW</span>
+                                        <span onClick={() => this.mountPopup({...obj, index})} style={{padding: '7px'}}>VIEW</span>
                                     </span>
+                                </td>
+                                <td>
+                                  {
+                                    obj.severity === 3
+                                    ? high
+                                    : obj.severity === 2
+                                      ? medium
+                                      : low
+                                  }
                                 </td>
                             </tr>)
                     }
